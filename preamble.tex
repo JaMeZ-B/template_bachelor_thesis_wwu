@@ -1,0 +1,63 @@
+%!TEX root = bachelor.tex
+% -- Author: Jannes Bantje, j.bantje@wwu.de
+\documentclass[a4paper,index=totoc,toc=bibliography,fontsize=10,DIV=13,headinclude,twoside,BCOR=12mm,cleardoublepage=empty,draft]{scrreprt}
+
+
+
+
+%-- typografische Verbesserungen, Codierungskram, Schriftwahl und erste Mathepakete
+\usepackage[utf8]{inputenc}
+\usepackage[lining,semibold,defaultfeatures={Variant=05}]{libertine}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % verhindert ein paar Fehler bei den Fonts
+\usepackage[varl]{inconsolata}
+\usepackage{mathtools,amssymb} % Verbesserung von amsmath (die amsmath selbst lädt)
+\usepackage[libertine,cmintegrals,bigdelims,varbb]{newtxmath}
+\usepackage[ngerman]{babel}
+\usepackage[babel=true, tracking=true,final]{microtype}
+% \useosf % aktiviert sog. "old style figures", also werden Zahlen – im Text – teilweise unterhalb der Grundlinie angezeigt. Muss man mögen...
+
+%-- Basics für graphische Sachen
+\usepackage[usenames,x11names]{xcolor} % Die Optionen definieren zusätzliche Farben (siehe Dokumentation)
+\usepackage[final]{graphicx}
+
+%-- Mathematikpakete und Einstellungen
+\mathtoolsset{centercolon} % sorgt dafür dass := und =: besser aussehen
+\usepackage{mathdots} % sorgt dafür, dass Punte wie zB \ddots besser aussehen
+\newcommand{\Underbrace}[2]{{\underbrace{#1}_{#2}}} % Underbrace als Befehl in LaTeX-Syntax (und ohne Spacing-Probleme mit nachfolgenden Operatoren...)
+\renewcommand{\le}{\leqslant} % ich finde Kleinergleich mit schrägen Strich schöner
+\renewcommand{\ge}{\geqslant}
+
+%-- kommutative Diagramme
+\usepackage{tikz-cd} %-- meiner Meinung nach das beste Paket für kommutative Diagramme
+\tikzset{% um Kompatibilität mit Babel herzustellen und die angenehme ""-Syntax zu nutzen
+  every picture/.append style={
+    execute at begin picture={\shorthandoff{"}},
+    execute at end picture={\shorthandon{"}}
+  }
+}
+\usetikzlibrary{quotes,babel}
+
+%-- Für Literaturangaben, hier wird NICHT das total veraltete bibtex benutzt!
+\usepackage[%
+	backend=biber,
+	sortlocale=auto,
+	natbib,
+	hyperref,
+	backref,
+	style=alphabetic % eine unvollständige Auswahl von Styles: ieee, numeric, apa
+	]%
+{biblatex}
+\addbibresource{quellen.bib} % Literaturdatei einlesen
+
+% -- Konfiguration von Hyperref (sorgt für anklickbare Links und ein PDF-Inhaltsverzeichnis)
+\usepackage[hidelinks, pdfpagelabels, bookmarksopen=true, bookmarksnumbered=true, linkcolor=black, urlcolor=SkyBlue2, plainpages=false,pagebackref, citecolor=black, hypertexnames=true, pdfauthor={Jannes Bantje}, pdfborderstyle={/S/U}, linkbordercolor=SkyBlue2, colorlinks=false,backref=false]{hyperref}
+\hypersetup{final}
+
+%-- Für Aufzählungen und andere Listen, Anführungszeichen und Zitate
+\usepackage[shortlabels]{enumitem} % durch die Option ist die gleiche Syntax wie zB mit dem Paket paralist möglich
+\setlist[enumerate,description]{font=\sffamily\bfseries} % sorgt dafür, dass die Labels bei enumerate und description fett sind
+\usepackage[german=quotes]{csquotes}
+
+%-- Für hilfreiche Anmerkungen am Seitenrand
+\usepackage[obeyDraft,textsize=small]{todonotes}

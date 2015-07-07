@@ -1,0 +1,120 @@
+%!TEX TS-program = pdflatex
+%!BIB program = biber
+% -- Author: Jannes Bantje, j.bantje@wwu.de
+\input{preamble.tex}
+
+\begin{document}
+\pagenumbering{Roman} % Seitennummerierung auf römische Zahlen setzen
+\begin{titlepage}
+	% Nach einer Vorlage von http://www.LaTeXTemplates.com
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+	\center % Center everything on the page
+ 
+	%----------------------------------------------------------------------------------------
+	%	HEADING SECTIONS
+	%----------------------------------------------------------------------------------------
+	
+	% \includegraphics[height=1.1cm,keepaspectratio]{Bilder/Logo_WWU_Muenster.pdf} \hfill 
+
+	\textsc{\LARGE Westfälische Wilhelms-Universität Münster}\\[1.5cm] % Name of your university/college
+	\textsc{\Large Bachelorarbeit}\\[0.5cm] % Major heading such as course name
+
+	%----------------------------------------------------------------------------------------
+	%	TITLE SECTION
+	%----------------------------------------------------------------------------------------
+
+	\HRule \\[0.4cm]
+	{ \huge \sffamily\bfseries Thema der Bachelorarbeit}\\[0.4cm] % Title of your document
+	\HRule \\[1.5cm]
+ 
+	%----------------------------------------------------------------------------------------
+	%	AUTHOR SECTION
+	%----------------------------------------------------------------------------------------
+
+	\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+	\emph{Author:}\\
+	John \textsc{Smith}\\ % Your name
+	\normalsize \url{mail@adresse}\\
+	Matr.\,Nr. 123456
+	\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+	\begin{flushright} \large
+	\emph{Betreuer:} \\
+	Dr. James \textsc{Smith}\\ % Supervisor's Name
+	\normalsize \url{mail@adresse}
+	\end{flushright}
+	\end{minipage}\\[4cm]
+
+	% If you don't want a supervisor, uncomment the two lines below and remove the section above
+	%\Large \emph{Author:}\\
+	%John \textsc{Smith}\\[3cm] % Your name
+
+	%----------------------------------------------------------------------------------------
+	%	DATE SECTION
+	%----------------------------------------------------------------------------------------
+
+	{\large eingereicht am \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+	%----------------------------------------------------------------------------------------
+	%	LOGO SECTION
+	%----------------------------------------------------------------------------------------
+
+	\includegraphics[height=1.3cm,keepaspectratio]{Bilder/fb10logo.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+	%----------------------------------------------------------------------------------------
+
+	\vfill % Fill the rest of the page with whitespace
+	
+\end{titlepage}
+\begin{abstract}
+\section*{Vorwort}
+Hier entsteht ein Vorwort.
+\end{abstract}
+\tableofcontents
+
+\[
+	\sum_{i=0}^{\infty} a^i = \int y^2 \,\mathrm{d} x 
+\]
+
+\section{Demobereich} % (fold)
+\subsection{Demonstration von \texttt{todonotes}} 
+Man kann mittels \texttt{\textbackslash{}todo} Notizen an den Rand schreiben.\todo{Hier muss noch was hinzugefügt werden \ldots} Dafür muss allerdings in dem \texttt{\textbackslash{}documentclass}-Befehl die Option \texttt{draft} gesetzt sein. Man kann sich auch eine große Box mitten in den Text setzen lassen, die eine noch anzufertigende Zeichnung markiert. Dazu benutzt man \texttt{\textbackslash{}missingfigure$\{$\ldots$\}$}:
+\missingfigure{Hier fehlt eine Zeichnung}
+
+\subsection{Demonstration von \texttt{tikzcd}}
+Mit der Umgebung \texttt{tikzcd} kann man sehr einfach schöne kommutative Diagramme zeichnen, die man auch noch bis aufs Feinste konfigurieren kann.
+\[
+	\begin{tikzcd}[sep=large]
+		A \rar["f"] \dar[dashed] & B \dar[hook] \\
+		C \urar["g"] & D
+	\end{tikzcd}
+\]
+Kleiner Vergleich von \texttt{\textbackslash{}underbrace} und \texttt{\textbackslash{}Underbrace}
+\[
+	\underbrace{a+b}_{=1} + (x-y) \qquad \text{versus} \qquad \Underbrace{a+b}{=1} + (x-y)
+\]
+
+\subsection{Literaturangaben und Zitate} % (fold)
+Wichtige Info vorweg: Das Aussehen der Referenzen hängt sehr stark von dem verwendeten Stil ab! Der einfachste Befehl zum Zitieren ist 
+\texttt{\textbackslash{}cite}, dessen Output in etwas das Folgende ist: \cite{CGL}. Man kann noch ein optionales Argument angeben und da zum Beispiel das Kapitel reinschreiben: \cite[Kapitel $\pi$]{CGL}.
+\begin{itemize}
+	\item \textquote[\cite{CGL}]{kurzes Zitat von Gauß} erzeugt mit \texttt{\textbackslash{}textcite$[\backslash\texttt{cite}\{\ldots\}]\{\ldots\}$}
+	\item Für längere Zitat benutzt man besser den Befehl \texttt{\textbackslash{}blockcite$[\backslash\texttt{cite}\{\ldots\}]\{\ldots\}$}, der je nach 
+	Länge des Arguments den zitierten Text vom Fließtext absetzt: \blockquote[\cite{CGL}]{Hier kommt jetzt ein ganz langer Text hin, von dem ich hoffe, 
+	dass ihn keiner liest, denn er enthält nun mal so gerade gar keine sinnvolle Information. Hier kommt jetzt ein ganz langer Text hin, von dem ich hoffe, 
+	dass ihn keiner liest, denn er enthält nun mal so gerade gar keine sinnvolle Information. Hier kommt jetzt ein ganz langer Text hin, von dem ich hoffe, 
+	dass ihn keiner liest, denn er enthält nun mal so gerade gar keine sinnvolle Information.}
+	Hier geht der Fließtext weiter.
+	\item Möchte man einfach nur ein Wort mit Anführungszeichen versehen benutzt man \texttt{\textbackslash{}enquote$\{\ldots \}$}. Zu Beispiel so:
+	Die sogenannte \enquote{Lie-Algebra}.
+\end{itemize}
+
+% subsection literaturangaben_und_zitate (end)
+% section demobereich (end)
+
+\printbibliography
+\end{document}
