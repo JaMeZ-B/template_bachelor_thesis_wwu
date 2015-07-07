@@ -11,30 +11,19 @@
 
 	\center % Center everything on the page
  
-	%----------------------------------------------------------------------------------------
-	%	HEADING SECTIONS
-	%----------------------------------------------------------------------------------------
-	
-	% \includegraphics[height=1.1cm,keepaspectratio]{Bilder/Logo_WWU_Muenster.pdf} \hfill 
 
 	\textsc{\LARGE Westfälische Wilhelms-Universität Münster}\\[1.5cm] % Name of your university/college
 	\textsc{\Large Bachelorarbeit}\\[0.5cm] % Major heading such as course name
 
-	%----------------------------------------------------------------------------------------
-	%	TITLE SECTION
-	%----------------------------------------------------------------------------------------
 
 	\HRule \\[0.4cm]
 	{ \huge \sffamily\bfseries Thema der Bachelorarbeit}\\[0.4cm] % Title of your document
 	\HRule \\[1.5cm]
  
-	%----------------------------------------------------------------------------------------
-	%	AUTHOR SECTION
-	%----------------------------------------------------------------------------------------
 
 	\begin{minipage}{0.4\textwidth}
 	\begin{flushleft} \large
-	\emph{Author:}\\
+	\emph{Autor:}\\
 	John \textsc{Smith}\\ % Your name
 	\normalsize \url{mail@adresse}\\
 	Matr.\,Nr. 123456
@@ -49,23 +38,11 @@
 	\end{flushright}
 	\end{minipage}\\[4cm]
 
-	% If you don't want a supervisor, uncomment the two lines below and remove the section above
-	%\Large \emph{Author:}\\
-	%John \textsc{Smith}\\[3cm] % Your name
-
-	%----------------------------------------------------------------------------------------
-	%	DATE SECTION
-	%----------------------------------------------------------------------------------------
-
 	{\large eingereicht am \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
 
-	%----------------------------------------------------------------------------------------
-	%	LOGO SECTION
-	%----------------------------------------------------------------------------------------
 
 	\includegraphics[height=1.3cm,keepaspectratio]{Bilder/fb10logo.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
  
-	%----------------------------------------------------------------------------------------
 
 	\vfill % Fill the rest of the page with whitespace
 	
@@ -75,7 +52,12 @@
 Hier entsteht ein Vorwort.
 \end{abstract}
 \tableofcontents
+\cleardoubleoddemptypage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
+\chapter{Erstes Kapitel} % (fold)
+\label{cha:erstes_kapitel}
 \[
 	\sum_{i=0}^{\infty} a^i = \int y^2 \,\mathrm{d} x 
 \]
@@ -110,11 +92,27 @@ Wichtige Info vorweg: Das Aussehen der Referenzen hängt sehr stark von dem verw
 	dass ihn keiner liest, denn er enthält nun mal so gerade gar keine sinnvolle Information.}
 	Hier geht der Fließtext weiter.
 	\item Möchte man einfach nur ein Wort mit Anführungszeichen versehen benutzt man \texttt{\textbackslash{}enquote$\{\ldots \}$}. Zu Beispiel so:
-	Die sogenannte \enquote{Lie-Algebra}.
+	Die sogenannte \enquote{Lie-Algebra}. Man sollte Anführungszeichen \emph{nie} per Hand setzen!
 \end{itemize}
 
-% subsection literaturangaben_und_zitate (end)
-% section demobereich (end)
+\subsection{Alles zu Theoremen, Definition und so weiter} % (fold)
+Eine Definition kann man ganz leicht über \texttt{\textbackslash{}begin$\{$definition$\}$ \ldots \textbackslash{}end$\{$definition$\}$} erstellen:
+\begin{definition}
+Ein topologischer Raum $X$ heißt \emph{zusammehängend}, falls er sich nicht als disjunkte Vereinigung von zwei nichtleeren, offenen Mengen schreiben lässt.
+\end{definition}
+Die Nummerierung erfolgt in der momentanen Einstellung innerhalb des \texttt{section}-Zählers. Genauso sind auch \texttt{Satz,Korollar,Lemma,Proposition} definiert. 
+Selbstverständlich lassen sich noch weitere solche Umgebungen definieren. Für Beweise gibt es die Umgebung \texttt{beweis}, die das Zeichen am Ende eines Beweises selbstständig setzt. Dies funktioniert allerdings nur im Fließtext zuverlässig. Unter Umständen muss man mit \texttt{\textbackslash{}qedhere} nachhelfen.
+\begin{beweis}
+Wir beweisen die Behauptung per Induktion, die keinen Sinn ergibt:
+\[
+	a^2+b^2=c^2 \qedhere
+\]
+\end{beweis}
+% subsection alles_zu_theoremen_definition_und_so_weiter (end)
+\newpage
 
+Hier kommt noch ein wenig Text.
+
+\appendix % hier beginnt der Anhang
 \printbibliography
 \end{document}

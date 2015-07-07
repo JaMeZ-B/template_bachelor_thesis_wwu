@@ -7,11 +7,11 @@
 
 %-- typografische Verbesserungen, Codierungskram, Schriftwahl und erste Mathepakete
 \usepackage[utf8]{inputenc}
-\usepackage[lining,semibold,defaultfeatures={Variant=05}]{libertine}
+\usepackage[lining,semibold,defaultfeatures={Variant=01}]{libertine}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp} % verhindert ein paar Fehler bei den Fonts
 \usepackage[varl]{inconsolata}
-\usepackage{mathtools,amssymb} % Verbesserung von amsmath (die amsmath selbst lädt)
+\usepackage{mathtools,amssymb,amsthm} % Verbesserung von amsmath (die amsmath selbst lädt)
 \usepackage[libertine,cmintegrals,bigdelims,varbb]{newtxmath}
 \usepackage[ngerman]{babel}
 \usepackage[babel=true, tracking=true,final]{microtype}
@@ -30,7 +30,7 @@
 
 %-- kommutative Diagramme
 \usepackage{tikz-cd} %-- meiner Meinung nach das beste Paket für kommutative Diagramme
-\tikzset{% um Kompatibilität mit Babel herzustellen und die angenehme ""-Syntax zu nutzen
+\tikzset{% um Kompatibilität mit Babel herzustellen und die angenehme "<label>"-Syntax zu nutzen
   every picture/.append style={
     execute at begin picture={\shorthandoff{"}},
     execute at end picture={\shorthandon{"}}
@@ -61,3 +61,45 @@
 
 %-- Für hilfreiche Anmerkungen am Seitenrand
 \usepackage[obeyDraft,textsize=small]{todonotes}
+
+%-- Kopf- und Fußzeilen bearbeiten
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot % Standardkonfiguration löschen
+\setheadsepline{1pt} % Linie für die Kopfzeile
+\automark[section]{chapter} % definiert, welcher Text in den Kolumnentiteln erscheinen soll
+\rohead{\rightmark} % section erscheint rechts oben
+\lehead{\scshape\leftmark} % chapter erscheint links oben in ist in small caps gesetzt
+\ofoot[\pagemark]{\pagemark} % Seitenzahlen immer außen, hier wir auch der plain Stil bearbeitet!
+\ifoot[Titel der Bachelorarbeit]{Titel der Bachelorarbeit}
+\renewcommand*{\pnumfont}{\LARGE\sffamily} % Seitenzahlen in groß und serifenlos
+\renewcommand*{\footfont}{\large\sffamily\color{gray}}
+
+%-- Theorem-Pakete und Konfiguration
+\usepackage{thmtools}
+
+\declaretheoremstyle[%
+	headfont=\sffamily\bfseries,
+	notefont=\normalfont\sffamily,
+	bodyfont=\normalfont,
+	headformat=\NUMBER\ \NAME\NOTE,
+	headpunct={},
+	postheadspace=1ex,
+	spaceabove=15pt,spacebelow=10pt,]%
+{mainstyle}
+\declaretheoremstyle[%
+	headfont=\normalfont\scshape,
+	bodyfont=\normalfont,
+	headpunct=:,
+	postheadspace=1ex,
+	spacebelow=12pt,spaceabove=2pt,
+	qed=\qedsymbol]%
+{beweise}
+
+\declaretheorem[name=Definition,parent=section,style=mainstyle]{definition}
+\declaretheorem[name=Satz,sharenumber=definition,style=mainstyle]{satz}
+\declaretheorem[name=Korollar,sharenumber=definition,style=mainstyle]{korollar}
+\declaretheorem[name=Lemma,sharenumber=definition,style=mainstyle]{lemma}
+\declaretheorem[name=Proposition,sharenumber=definition,style=mainstyle]{proposition}
+
+\declaretheorem[name=Beweis,numbered=no,style=beweise]{beweis}
