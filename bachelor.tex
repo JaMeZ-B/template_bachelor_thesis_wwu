@@ -98,7 +98,7 @@ Wichtige Info vorweg: Das Aussehen der Referenzen hängt sehr stark von dem verw
 \subsection{Alles zu Theoremen, Definition und so weiter} % (fold)
 Eine Definition kann man ganz leicht über \texttt{\textbackslash{}begin$\{$definition$\}$ \ldots \textbackslash{}end$\{$definition$\}$} erstellen:
 \begin{definition}
-Ein topologischer Raum $X$ heißt \emph{zusammehängend}, falls er sich nicht als disjunkte Vereinigung von zwei nichtleeren, offenen Mengen schreiben lässt.
+Ein topologischer Raum $X$ heißt \emph{zusammenhängend}, falls er sich nicht als disjunkte Vereinigung von zwei nichtleeren, offenen Mengen schreiben lässt.
 \end{definition}
 Die Nummerierung erfolgt in der momentanen Einstellung innerhalb des \texttt{section}-Zählers. Genauso sind auch \texttt{Satz,Korollar,Lemma,Proposition} definiert. 
 Selbstverständlich lassen sich noch weitere solche Umgebungen definieren. Für Beweise gibt es die Umgebung \texttt{beweis}, die das Zeichen am Ende eines Beweises selbstständig setzt. Dies funktioniert allerdings nur im Fließtext zuverlässig. Unter Umständen muss man mit \texttt{\textbackslash{}qedhere} nachhelfen.
@@ -109,9 +109,63 @@ Wir beweisen die Behauptung per Induktion, die keinen Sinn ergibt:
 \]
 \end{beweis}
 % subsection alles_zu_theoremen_definition_und_so_weiter (end)
-\newpage
 
-Hier kommt noch ein wenig Text.
+\subsection{Verschiede Mathebefehle} % (fold)
+Hier werden kurz einige wichtige Mathebefehle vorgestellt:
+\begin{description}
+	\item[Mengen] Sinnigerweise heißt der Befehl \texttt{\textbackslash{}set}. Ein einfaches Beispiel:
+	\[
+		\set{v_1,\ldots ,v_n}
+	\]
+	In der Stern-Variante wird die Größe der Klammern automatisch angepasst, man kann die Größe aber auch manuell mit den bekannten Befehlen \texttt{\textbackslash{}big} 
+	usw. setzen:
+	\[
+		\set*{ \binom{n}{1}, \ldots , \binom{n}{k} } \qquad \set[\Big]{x_1, \ldots ,x_n}
+	\]
+	Ein \texttt{\textbackslash{}given} im Argument erzeugt die folgende ständig benötigte Notation:
+	\[
+		\set{x \in \mathbb{R}^2 \given x_1^2 + x_2^2=1} \qquad \set*{ x \in \mathbb{R}^n \given \sqrt{\sum_{i=1}^{n} x_i^2}=1}
+	\]
+	Ähnliche Konstrukte lassen sich natürlich auch für ähnliche Notation zum Beispiel in der Wahrscheinlichkeitstheorie realisieren.
+	\item[Klammern] Oft braucht man auch einfach nur Klammern, die sich der Größe des Inhalts anpassen. In diesem Dokument ist dafür \texttt{\textbackslash{}enbrace} und 
+	\command{abs} definiert. Die Syntax ist wie im ersten Fall nur ohne die \command{given} Option
+	\[
+		\enbrace*{V_1, \ldots ,V_m , \bigoplus_{i=1}^\infty V_i}  \qquad \abs*{x+y} \le \abs{x} + \abs{y} \qquad \abs*{\sum_{i=1}^{\infty} a_i}   
+	\]
+	\item[Skalarprodukt] Mittels  \command{skal} (zwei Argumente). Hausaufgabe: Herausfinden, wie man auf die Komma-Notation wechselt:
+	\[
+		\skal{v}{v_1 + \ldots + v_n} = \skal*{\sum v_i}{v}
+	\]
+	\item[Norm] Von der Syntax her genauso funktioniert \command{norm}
+	\[
+		\norm*{\frac{x}{\norm{x} } } =1
+	\]
+\end{description}
+% subsection verschiede_mathebefehle (end)
+
+\subsection{Differentialrechnung} % (fold)
+Meiner Meinung nach gehört das kleine \enquote{d} in Ableitungen oder Integralen aufrecht: Dazu gibt es den Befehl \command{mathd}:
+\[
+	\int x^2 \, \mathd x
+\]
+Für (partielle) Ableitungen gibt es dann noch die Befehle \command{diff} und \command{diffd} (jeweils zwei Argumente, die man auch leer lassen darf)
+\[
+	\diffd{}{t} \cos (c \cdot t) \qquad \diff{f}{x} \qquad \diff{^2 f}{x \partial y}
+\]
+% subsection differentialrechnung (end)
+
+\subsection{Eigene Operatoren} % (fold)
+Wer zum Beispiel für die Sinusfunktion \texttt{sin (x)} statt \texttt{\textbackslash{}sin (x)} schreibt, der begeht eine typografische Todsünde:
+\[
+	sin (x) \qquad \text{ versus } \qquad \sin (x)
+\]
+Benutzt man den Befehl, kann man auch die Klammer weglassen, ohne das Spacing zu stören: $\sin x$.
+Viele solcher Befehle sind schon vordefiniert. Wenn man selbst neue braucht, geht dies sehr einfach mittels \command{DeclareMathOperator} (siehe Quelltext). Hier wurde ein
+Befehl für das Signum definiert
+\[
+	\sgn \sigma = \pm 1
+\]
+% subsection eigene_operatoren (end)
 
 \appendix % hier beginnt der Anhang
 \printbibliography

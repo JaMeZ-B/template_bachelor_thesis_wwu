@@ -16,6 +16,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[babel=true, tracking=true,final]{microtype}
 % \useosf % aktiviert sog. "old style figures", also werden Zahlen – im Text – teilweise unterhalb der Grundlinie angezeigt. Muss man mögen...
+\newcommand{\command}[1]{\texttt{\textbackslash{}#1}}
 
 %-- Basics für graphische Sachen
 \usepackage[usenames,x11names]{xcolor} % Die Optionen definieren zusätzliche Farben (siehe Dokumentation)
@@ -27,6 +28,26 @@
 \newcommand{\Underbrace}[2]{{\underbrace{#1}_{#2}}} % Underbrace als Befehl in LaTeX-Syntax (und ohne Spacing-Probleme mit nachfolgenden Operatoren...)
 \renewcommand{\le}{\leqslant} % ich finde Kleinergleich mit schrägen Strich schöner
 \renewcommand{\ge}{\geqslant}
+
+%-- Ein sehr hübscher Mengen-Befehl
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert\allowbreak\nonscript\:\mathopen{}}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+%-- Klammern, Skalarprodukt und Norm
+\DeclarePairedDelimiter{\enbrace}{(}{)}
+\DeclarePairedDelimiter{\abs}{|}{|}
+\DeclarePairedDelimiterX\skal[2]{\langle}{\rangle}{#1\,\delimsize\vert\,#2}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+%-- Differentialrechnung
+\newcommand{\mathd}{\mathrm{d}\mkern-0.5mu}
+\newcommand{\diff}[2]{\frac{{\partial #1}}{{\partial #2}} }
+\newcommand{\diffd}[2]{\frac{\mathd #1}{\mathd #2} }
+
+%-- eigene Befehle
+\DeclareMathOperator{\sgn}{sgn}
+
 
 %-- kommutative Diagramme
 \usepackage{tikz-cd} %-- meiner Meinung nach das beste Paket für kommutative Diagramme
