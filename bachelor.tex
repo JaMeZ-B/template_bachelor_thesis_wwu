@@ -1,4 +1,4 @@
-%!TEX TS-program = pdflatex
+%!TEX TS-program = xelatex
 %!BIB program = biber
 % -- Author: Jannes Bantje, j.bantje@wwu.de
 \input{preamble.tex}
@@ -24,7 +24,7 @@
 	\begin{minipage}{0.4\textwidth}
 	\begin{flushleft} \large
 	\emph{Autor:}\\
-	John \textsc{Smith}\\ % Your name
+	John \textsc{Graßmann}\\ % Your name
 	\normalsize \url{mail@adresse}\\
 	Matr.\,Nr. 123456
 	\end{flushleft}
@@ -146,7 +146,7 @@ Hier werden kurz einige wichtige Mathebefehle vorgestellt:
 \subsection{Differentialrechnung} % (fold)
 Meiner Meinung nach gehört das kleine \enquote{d} in Ableitungen oder Integralen aufrecht: Dazu gibt es den Befehl \command{mathd}:
 \[
-	\int x^2 \, \mathd x
+	\int\! x^2 \, \mathd x
 \]
 Für (partielle) Ableitungen gibt es dann noch die Befehle \command{diff} und \command{diffd} (jeweils zwei Argumente, die man auch leer lassen darf)
 \[

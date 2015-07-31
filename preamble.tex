@@ -3,24 +3,44 @@
 \documentclass[a4paper,index=totoc,toc=bibliography,fontsize=10,DIV=13,headinclude,twoside,BCOR=12mm,cleardoublepage=empty,draft]{scrreprt}
 
 
-
-
-%-- typografische Verbesserungen, Codierungskram, Schriftwahl und erste Mathepakete
-\usepackage[utf8]{inputenc}
-\usepackage[lining,semibold,defaultfeatures={Variant=01}]{libertine}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp} % verhindert ein paar Fehler bei den Fonts
-\usepackage[varl]{inconsolata}
-\usepackage{mathtools,amssymb,amsthm} % Verbesserung von amsmath (die amsmath selbst lädt)
-\usepackage[libertine,cmintegrals,bigdelims,varbb]{newtxmath}
-\usepackage[ngerman]{babel}
-\usepackage[babel=true, tracking=true,final]{microtype}
-% \useosf % aktiviert sog. "old style figures", also werden Zahlen – im Text – teilweise unterhalb der Grundlinie angezeigt. Muss man mögen...
-\newcommand{\command}[1]{\texttt{\textbackslash{}#1}}
-
 %-- Basics für graphische Sachen
 \usepackage[usenames,x11names]{xcolor} % Die Optionen definieren zusätzliche Farben (siehe Dokumentation)
 \usepackage[final]{graphicx}
+
+%-- typografische Verbesserungen, Codierungskram, Schriftwahl und erste Mathepakete
+% \usepackage[utf8]{inputenc}
+% \usepackage[lining,semibold]{libertine}
+% \usepackage[T1]{fontenc}
+% \usepackage{textcomp} % verhindert ein paar Fehler bei den Fonts
+% \usepackage[varl]{zi4}
+% \usepackage{mathtools,amssymb,amsthm} % Verbesserung von amsmath (die amsmath selbst lädt)
+% \usepackage[libertine,cmintegrals,bigdelims,varbb]{newtxmath}
+% \usepackage[ngerman]{babel}
+% \usepackage[babel=true, tracking=true,final]{microtype}
+
+% \useosf % aktiviert sog. "old style figures", also werden Zahlen – im Text – teilweise unterhalb der Grundlinie angezeigt. Muss man mögen...
+
+
+%-- Alternative Konfiguration mit XeLaTeX, die ein großes "ß" anzeigen kann!
+%-- ACHTUNG: wenn diese benutzt werden soll, dan MUSS man in der ersten Zeile bachelor.tex "pdflatex" durch "xelatex" ersetzen und natürlich den obigen Block auskommentieren!!!
+\usepackage{lmodern}
+\usepackage{mathtools,amssymb,amsthm} % Verbesserung von amsmath (die amsmath selbst lädt)
+\usepackage[libertine,cmintegrals,bigdelims,varbb]{newtxmath}
+\usepackage[no-math]{fontspec}
+\usepackage{polyglossia} % moderner babel-ersatz
+\setmainlanguage[spelling=new,babelshorthands=true]{german}
+\shorthandoff{"}
+\defaultfontfeatures{Mapping=tex-text, Ligatures={Required,Common,Contextual}}
+\setmainfont{LinLibertine}[Extension=.otf,UprightFont=*_R,BoldFont=*_RZ,ItalicFont=*_RI,BoldItalicFont=*_RZI,ItalicFeatures={Ligatures=Historical}]
+\setsansfont{LinBiolinum}[Scale=MatchUppercase, Extension=.otf, UprightFont=*_R, BoldFont=*_RB, ItalicFont=*_RI,BoldItalicFont=*_RBO]
+\setmonofont{Inconsolatazi4}[Scale=MatchUppercase,Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,StylisticSet=1]
+\usepackage[final]{microtype}
+
+
+
+\newcommand{\command}[1]{\texttt{\textbackslash{}#1}}
+
+
 
 %-- Mathematikpakete und Einstellungen
 \mathtoolsset{centercolon} % sorgt dafür dass := und =: besser aussehen
