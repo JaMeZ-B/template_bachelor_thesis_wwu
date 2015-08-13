@@ -121,8 +121,31 @@
 \renewcommand*{\footfont}{\large\sffamily\color{gray}}
 % \renewcommand*{\headfont}{\normalfont}
 
+
+
 %-- Theorem-Pakete und Konfiguration
 \usepackage{thmtools}
+
+\usepackage{bookmark} 
+% Theoreme als PDF-Lesezeichen
+\bookmarksetup{open,numbered}
+\makeatletter
+\newcommand*{\theorembookmark}{%
+  \bookmark[
+    dest=\@currentHref,
+    rellevel=1,
+    keeplevel,
+  ]{%
+    \thmt@thmname\space\csname the\thmt@envname\endcsname
+    \ifx\thmt@shortoptarg\@empty
+    \else
+      \space(\thmt@shortoptarg)%
+    \fi
+  }%
+}   
+\makeatother
+
+
 
 \declaretheoremstyle[%
 	headfont=\sffamily\bfseries,
@@ -131,6 +154,7 @@
 	headformat=\NUMBER\ \NAME\NOTE,
 	headpunct={},
 	postheadspace=1ex,
+	postheadhook=\theorembookmark,
 	spaceabove=15pt,spacebelow=10pt,]%
 {mainstyle}
 \declaretheoremstyle[%
