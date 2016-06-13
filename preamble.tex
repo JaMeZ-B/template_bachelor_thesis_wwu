@@ -53,6 +53,14 @@
 \renewcommand{\le}{\leqslant} % ich finde Kleinergleich mit schrägen Strich schöner
 \renewcommand{\ge}{\geqslant}
 
+%-- charakteristische-Funktion-/Indikatorfunktion-Eins '\ind'
+\usepackage{silence}
+\WarningFilter{latexfont}{Size substitutions with differences}
+\WarningFilter{latexfont}{Font shape `U/bbold/m/n' in size}
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+\newcommand{\ind}{\mathbbold{1}} 
+
 %-- Ein sehr hübscher Mengen-Befehl
 \newcommand\SetSymbol[1][]{\nonscript\:#1\vert\allowbreak\nonscript\:\mathopen{}}
 \providecommand\given{} % to make it exist
