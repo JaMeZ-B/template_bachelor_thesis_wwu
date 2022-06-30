@@ -1,6 +1,6 @@
 %!TEX root = bachelor.tex
 % -- Author: Jannes Bantje, j.bantje@wwu.de
-\documentclass[a4paper,index=totoc,toc=bibliography,fontsize=10,DIV=13,headinclude,twoside,BCOR=12mm,cleardoublepage=empty,draft]{scrreprt}
+\documentclass[a4paper,index=totoc,toc=bibliography,fontsize=10,DIV=13,headinclude,twoside,BCOR=12mm,cleardoublepage=empty,headsepline=1pt,draft]{scrreprt}
 
 
 %-- Basics für graphische Sachen
@@ -116,10 +116,8 @@
 \usepackage[obeyDraft,textsize=small]{todonotes}
 
 %-- Kopf- und Fußzeilen bearbeiten
-\usepackage{scrpage2}
+\usepackage[draft=false]{scrlayer-scrpage}
 \pagestyle{scrheadings}
-\clearscrheadfoot % Standardkonfiguration löschen
-\setheadsepline{1pt} % Linie für die Kopfzeile
 \automark[section]{chapter} % definiert, welcher Text in den Kolumnentiteln erscheinen soll
 \rohead{\rightmark} % section erscheint rechts oben
 \lehead{\scshape\leftmark} % chapter erscheint links oben in ist in small caps gesetzt
